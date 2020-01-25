@@ -1,0 +1,343 @@
+// Styling scroll bar
+html {
+  --scrollbarBG: #2d3341;
+  --thumbBG: #1c2029;
+}
+*::-webkit-scrollbar {
+  width: 11px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  user-select: none;
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 2px solid var(--scrollbarBG);
+}
+
+body {
+  overflow: hidden;
+  cursor: default;
+}
+
+main {
+  height: calc(100vh - 32px);
+  margin-top: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.icon-block {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 5px -2px #0000005e;
+
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    box-shadow: -2px -2px 6px -4px #ffffff2e;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &-inset::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    border-radius: 0.3rem;
+    box-shadow: inset 0px 0px 7px -5px #ffffff8a;
+    margin: 0.3rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.tile {
+  span.hoverToAnimate {
+    display: none;
+  }
+  &:hover {
+    span.hoverToAnimate {
+      display: inline-block;
+    }
+  }
+}
+
+.tile-block {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 5px -2px #0000005e;
+
+  &::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    box-shadow: -2px -2px 6px -4px #ffffff2e;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &-inset::after {
+    position: absolute;
+    content: "";
+    border-radius: 0.3rem;
+    box-shadow: inset 0px 0px 7px -5px #ffffff8a;
+    margin: 0.3rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .tile-content {
+    text-align: center;
+    small {
+      color: #5e5e5e;
+    }
+  }
+
+  .tile-icon {
+    position: absolute;
+    color: #363e4f45;
+    top: 0;
+  }
+}
+
+.no-scroll {
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+body.dark {
+  input,
+  textarea,
+  select {
+    background-color: transparent;
+    border-color: rgba(0, 255, 255, 0.158);
+    color: #fff;
+    margin: 0.5rem auto;
+
+    &:focus {
+      background-color: #2d3341;
+      color: #d5e4ff;
+      border-color: aqua;
+      outline: none;
+      box-shadow: 0 0 0.8rem -0.1rem rgba(22, 101, 216, 0.25);
+    }
+  }
+
+  .input-group {
+    input {
+      margin: 0;
+    }
+
+    .input-group-text {
+      color: #5981a9;
+      background-color: #11202d;
+      border-color: #5981a9;
+    }
+  }
+
+  .custom-control-label {
+    color: #d5e4ff;
+  }
+
+  .form-control {
+    background-color: transparent;
+    border-color: rgba(0, 255, 255, 0.158);
+  }
+
+  .custom-control-label::before {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 255, 255, 0.158);
+  }
+
+  table.table thead th {
+    border-top: none;
+  }
+}
+
+.app-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  box-shadow: 0 0 12px -4px #000000;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  z-index: 999999999999;
+  -webkit-app-region: drag;
+
+  .flex-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .logo {
+      width: 25px;
+      height: 25px;
+      margin-left: 0.3rem;
+      border-radius: 50%;
+      background-color: rgba(255, 246, 127, 0.199);
+    }
+
+    .menu {
+      height: 100%;
+      -webkit-app-region: none;
+
+      ul {
+        list-style-type: none;
+        padding-inline-start: 0;
+        margin-block-end: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        li {
+          position: relative;
+          padding: 0 0.7rem;
+          font-size: 0.7rem;
+          cursor: default;
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+          &:first-child {
+            margin-left: 0.5rem;
+          }
+
+          &:hover {
+            background-color: rgba(253, 253, 253, 0.06);
+          }
+
+          &:focus,
+          &:active {
+            outline: none;
+
+            & > ul {
+              display: block;
+            }
+          }
+
+          ul {
+            display: none;
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            height: min-content;
+            background-color: #232833;
+            box-shadow: 0 2px 6px -1px #000;
+            width: 15rem;
+            z-index: 9;
+
+            li {
+              display: block;
+              padding: 0.28rem 0.6rem;
+              height: auto;
+
+              &:first-child {
+                margin-left: 0;
+              }
+
+              &:hover {
+                & > ul {
+                  display: block;
+                }
+              }
+
+              ul {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+              }
+            }
+            li.separator {
+              border-top: 2px groove #232833;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .text {    
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: -1;
+    }
+  }
+
+  .app-actions {
+    float: right;
+    height: 100%;
+    -webkit-app-region: none;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      padding-inline-start: 0;
+      margin-block-end: 0;
+      height: 100%;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 2.2rem;
+        font-size: 0.7rem;
+      }
+
+      li:hover:not(:nth-child(3)) {
+        background-color: rgba(253, 253, 253, 0.06);
+      }
+      li:nth-child(3):hover {
+        background-color: rgb(255, 0, 0);
+      }
+    }
+  }
+}
