@@ -13,7 +13,7 @@
   "main": "background.js",
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.4.4",
     "electron-store": "^5.1.0",
     "i18n": "^0.8.4",
